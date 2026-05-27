@@ -4,7 +4,6 @@
 //  Copyright(c) 2019 Saad Shams <saad.shams@puremvc.org>
 //  Your reuse is governed by the Creative Commons Attribution 3.0 License
 //
-
 package org.puremvc.java.patterns.proxy;
 
 import org.puremvc.java.interfaces.IProxy;
@@ -47,7 +46,8 @@ public class Proxy extends Notifier implements IProxy {
      */
     public Proxy(String proxyName, Object data) {
         this.proxyName = (proxyName != null) ? proxyName : NAME;
-        if(data != null) setData(data);
+        if (data != null)
+            setData(data);
     }
 
     /**
@@ -62,7 +62,7 @@ public class Proxy extends Notifier implements IProxy {
     /**
      * <P>Constructor</P>
      */
-    public Proxy(){
+    public Proxy() {
         this(null, null);
     }
 
@@ -70,14 +70,14 @@ public class Proxy extends Notifier implements IProxy {
      * <P>Called by the Model when the Proxy is registered</P>
      */
     public void onRegister() {
-
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
      * <P>Called by the Model when the Proxy is removed</P>
      */
     public void onRemove() {
-
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -86,7 +86,7 @@ public class Proxy extends Notifier implements IProxy {
      * @return the proxy name
      */
     public String getProxyName() {
-        return proxyName;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -95,7 +95,7 @@ public class Proxy extends Notifier implements IProxy {
      * @return the data object
      */
     public Object getData() {
-        return data;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -104,7 +104,6 @@ public class Proxy extends Notifier implements IProxy {
      * @param data data object
      */
     public void setData(Object data) {
-        this.data = data;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

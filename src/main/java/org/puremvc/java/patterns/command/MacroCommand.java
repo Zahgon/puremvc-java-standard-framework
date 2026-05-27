@@ -4,13 +4,11 @@
 //  Copyright(c) 2019 Saad Shams <saad.shams@puremvc.org>
 //  Your reuse is governed by the Creative Commons Attribution 3.0 License
 //
-
 package org.puremvc.java.patterns.command;
 
 import org.puremvc.java.interfaces.ICommand;
 import org.puremvc.java.interfaces.INotification;
 import org.puremvc.java.patterns.observer.Notifier;
-
 import java.util.Vector;
 import java.util.function.Supplier;
 
@@ -79,6 +77,7 @@ public class MacroCommand extends Notifier implements ICommand {
      * <code>MacroCommand</code>s or <code>SimpleCommands</code> are both acceptable.</P>
      */
     protected void initializeMacroCommand() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -90,7 +89,7 @@ public class MacroCommand extends Notifier implements ICommand {
      * @param factory a reference to the factory of the <code>ICommand</code>.
      */
     protected void addSubCommand(Supplier<ICommand> factory) {
-        subCommands.add(factory);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -102,10 +101,6 @@ public class MacroCommand extends Notifier implements ICommand {
      * @param notification the <code>INotification</code> object to be passsed to each <i>SubCommand</i>.
      */
     public void execute(INotification notification) {
-        while(!subCommands.isEmpty()) {
-            Supplier<ICommand> commandSupplier = subCommands.remove(0);
-            ICommand command = commandSupplier.get();
-            command.execute(notification);
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

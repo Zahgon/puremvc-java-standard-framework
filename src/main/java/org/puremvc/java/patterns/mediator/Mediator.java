@@ -4,7 +4,6 @@
 //  Copyright(c) 2019 Saad Shams <saad.shams@puremvc.org>
 //  Your reuse is governed by the Creative Commons Attribution 3.0 License
 //
-
 package org.puremvc.java.patterns.mediator;
 
 import org.puremvc.java.interfaces.IMediator;
@@ -67,7 +66,7 @@ public class Mediator extends Notifier implements IMediator {
      * @return Array the list of <code>INotification</code> names
      */
     public String[] listNotificationInterests() {
-        return new String[0];
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -78,21 +77,21 @@ public class Mediator extends Notifier implements IMediator {
      * the <code>Mediator</code> is interested in.</P>
      */
     public void handleNotification(INotification notification) {
-
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
      * <P>Called by the View when the Mediator is registered</P>
      */
     public void onRegister() {
-
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
      * <P>Called by the View when the Mediator is removed</P>
      */
     public void onRemove() {
-
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -101,27 +100,27 @@ public class Mediator extends Notifier implements IMediator {
      * @return the Mediator name
      */
     public String getMediatorName() {
-        return mediatorName;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
-     * <P>Get the <code>Mediator</code>'s view component.</P>
+     *  <P>Get the <code>Mediator</code>'s view component.</P>
      *
-     * <P>Additionally, an implicit getter will usually
-     * be defined in the subclass that casts the view
-     * object to a type, like this:</P>
+     *  <P>Additionally, an implicit getter will usually
+     *  be defined in the subclass that casts the view
+     *  object to a type, like this:</P>
      *
-     * {@code
-     *		public javax.swing.JComboBox getViewComponent()
-     *		{
-     *			return viewComponent;
-     *		}
-     *}
+     *  {@code
+     * 		public javax.swing.JComboBox getViewComponent()
+     * 		{
+     * 			return viewComponent;
+     * 		}
+     * }
      *
-     * @return the view component
+     *  @return the view component
      */
     public Object getViewComponent() {
-        return viewComponent;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -130,7 +129,6 @@ public class Mediator extends Notifier implements IMediator {
      * @param viewComponent the view component
      */
     public void setViewComponent(Object viewComponent) {
-        this.viewComponent = viewComponent;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

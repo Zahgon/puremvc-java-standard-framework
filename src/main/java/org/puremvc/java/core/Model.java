@@ -4,12 +4,10 @@
 //  Copyright(c) 2019 Saad Shams <saad.shams@puremvc.org>
 //  Your reuse is governed by the Creative Commons Attribution 3.0 License
 //
-
 package org.puremvc.java.core;
 
 import org.puremvc.java.interfaces.IModel;
 import org.puremvc.java.interfaces.IProxy;
-
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.function.Supplier;
@@ -57,10 +55,10 @@ public class Model implements IModel {
      * Factory method <code>Model.getInstance()</code></P>
      *
      * @throws Error Error if Singleton instance has already been constructed
-     *
      */
     public Model() {
-        if(instance != null) throw new Error(SINGLETON_MSG);
+        if (instance != null)
+            throw new Error(SINGLETON_MSG);
         instance = this;
         proxyMap = new ConcurrentHashMap<>();
         initializeModel();
@@ -73,9 +71,9 @@ public class Model implements IModel {
      * is your opportunity to initialize the Singleton
      * instance in your subclass without overriding the
      * constructor.</P>
-     *
      */
     protected void initializeModel() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -85,8 +83,7 @@ public class Model implements IModel {
      * @return the Singleton instance
      */
     public synchronized static IModel getInstance(Supplier<IModel> factory) {
-        if(instance == null) instance = factory.get();
-        return instance;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -95,8 +92,7 @@ public class Model implements IModel {
      * @param proxy an <code>IProxy</code> to be held by the <code>Model</code>.
      */
     public void registerProxy(IProxy proxy) {
-        proxyMap.put(proxy.getProxyName(), proxy);
-        proxy.onRegister();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -106,7 +102,7 @@ public class Model implements IModel {
      * @return the <code>IProxy</code> instance previously registered with the given <code>proxyName</code>.
      */
     public IProxy retrieveProxy(String proxyName) {
-        return proxyMap.get(proxyName);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -116,7 +112,7 @@ public class Model implements IModel {
      * @return whether a Proxy is currently registered with the given <code>proxyName</code>.
      */
     public boolean hasProxy(String proxyName) {
-        return proxyMap.containsKey(proxyName);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -126,12 +122,6 @@ public class Model implements IModel {
      * @return the <code>IProxy</code> that was removed from the <code>Model</code>
      */
     public IProxy removeProxy(String proxyName) {
-        IProxy proxy = proxyMap.get(proxyName);
-        if(proxy != null) {
-            proxyMap.remove(proxyName);
-            proxy.onRemove();
-        }
-        return proxy;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

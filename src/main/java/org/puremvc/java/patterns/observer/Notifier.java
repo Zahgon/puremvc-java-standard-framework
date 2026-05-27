@@ -4,7 +4,6 @@
 //  Copyright(c) 2019 Saad Shams <saad.shams@puremvc.org>
 //  Your reuse is governed by the Creative Commons Attribution 3.0 License
 //
-
 package org.puremvc.java.patterns.observer;
 
 import org.puremvc.java.interfaces.IFacade;
@@ -39,7 +38,7 @@ public class Notifier implements INotifier {
     /**
      * <P>Local reference to the Facade Singleton</P>
      */
-    protected IFacade facade = Facade.getInstance(()-> new Facade());
+    protected IFacade facade = Facade.getInstance(() -> new Facade());
 
     /**
      * <P>Send an <code>INotification</code>s.</P>
@@ -52,7 +51,7 @@ public class Notifier implements INotifier {
      * @param type the type of the notification
      */
     public void sendNotification(String notificationName, Object body, String type) {
-        facade.sendNotification(notificationName, body, type);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -65,7 +64,7 @@ public class Notifier implements INotifier {
      * @param body the body of the notification
      */
     public void sendNotification(String notificationName, Object body) {
-        facade.sendNotification(notificationName, body);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -77,7 +76,6 @@ public class Notifier implements INotifier {
      * @param notificationName the name of the notiification to send
      */
     public void sendNotification(String notificationName) {
-        facade.sendNotification(notificationName);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

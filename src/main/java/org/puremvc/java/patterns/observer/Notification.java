@@ -4,7 +4,6 @@
 //  Copyright(c) 2019 Saad Shams <saad.shams@puremvc.org>
 //  Your reuse is governed by the Creative Commons Attribution 3.0 License
 //
-
 package org.puremvc.java.patterns.observer;
 
 import org.puremvc.java.interfaces.INotification;
@@ -38,7 +37,6 @@ import org.puremvc.java.interfaces.INotification;
  * using <code>Notification</code>s.</P>
  *
  * @see Observer Observer
- *
  */
 public class Notification implements INotification {
 
@@ -89,14 +87,14 @@ public class Notification implements INotification {
      * @return the name of the <code>Notification</code> instance.
      */
     public String getName() {
-        return name;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
      * <P>Set the body of the <code>Notification</code> instance.</P>
      */
     public void setBody(Object body) {
-        this.body = body;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -105,14 +103,14 @@ public class Notification implements INotification {
      * @return the body object.
      */
     public Object getBody() {
-        return body;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
      * <P>Set the type of the <code>Notification</code> instance.</P>
      */
     public void setType(String type) {
-        this.type = type;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -121,7 +119,7 @@ public class Notification implements INotification {
      * @return the type
      */
     public String getType() {
-        return type;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -130,9 +128,6 @@ public class Notification implements INotification {
      * @return the string representation of the <code>Notification</code> instance.
      */
     public String toString() {
-        return new StringBuilder("Notification Name: " + getName())
-                .append("\nBody:" + ((body == null) ? "null" : body.toString()))
-                .append("\nType:" + ((type == null) ? "null" : type))
-                .toString();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -4,7 +4,6 @@
 //  Copyright(c) 2019 Saad Shams <saad.shams@puremvc.org>
 //  Your reuse is governed by the Creative Commons Attribution 3.0 License
 //
-
 package org.puremvc.java.core;
 
 import org.puremvc.java.interfaces.ICommand;
@@ -12,14 +11,12 @@ import org.puremvc.java.interfaces.IController;
 import org.puremvc.java.interfaces.INotification;
 import org.puremvc.java.interfaces.IView;
 import org.puremvc.java.patterns.observer.Observer;
-
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.function.Supplier;
 
 /**
  * A Singleton <code>IController</code> implementation.
- *
  *
  * <P>In PureMVC, the <code>Controller</code> class follows the
  * 'Command and Controller' strategy, and assumes these
@@ -36,7 +33,6 @@ import java.util.function.Supplier;
  * <LI> Calling the <code>ICommand</code>'s <code>execute</code>
  * method, passing in the <code>INotification</code>.</LI>
  * </UL>
- *
  *
  * <P>Your application must register <code>ICommands</code> with the
  * Controller.</P>
@@ -74,10 +70,10 @@ public class Controller implements IController {
      * Factory method <code>Controller.getInstance()</code></P>
      *
      * @throws Error Error if Singleton instance has already been constructed
-     *
      */
     public Controller() {
-        if(instance != null) throw new Error(SINGLETON_MSG);
+        if (instance != null)
+            throw new Error(SINGLETON_MSG);
         instance = this;
         commandMap = new ConcurrentHashMap<>();
         initializeController();
@@ -103,7 +99,7 @@ public class Controller implements IController {
      * </PRE>
      */
     public void initializeController() {
-        view = View.getInstance(() -> new View());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -113,8 +109,7 @@ public class Controller implements IController {
      * @return the Singleton instance of <code>Controller</code>
      */
     public synchronized static IController getInstance(Supplier<IController> factory) {
-        if(instance == null) instance = factory.get();
-        return instance;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -124,10 +119,7 @@ public class Controller implements IController {
      * @param notification an <code>INotification</code>
      */
     public void executeCommand(INotification notification) {
-        Supplier<ICommand> commandSupplier = commandMap.get(notification.getName());
-        if(commandSupplier == null) return;
-        ICommand commandInstance = commandSupplier.get();
-        commandInstance.execute(notification);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -145,10 +137,7 @@ public class Controller implements IController {
      * @param commandSupplier the <code>Class</code> of the <code>ICommand</code>
      */
     public void registerCommand(String notificationName, Supplier<ICommand> commandSupplier) {
-        if(commandMap.get(notificationName) == null) {
-            view.registerObserver(notificationName, new Observer(this::executeCommand, this));
-        }
-        commandMap.put(notificationName, commandSupplier);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -157,10 +146,7 @@ public class Controller implements IController {
      * @param notificationName the name of the <code>INotification</code> to remove the <code>ICommand</code> mapping for
      */
     public void removeCommand(String notificationName) {
-        if(hasCommand(notificationName)) {
-            view.removeObserver(notificationName, this);
-            commandMap.remove(notificationName);
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -170,7 +156,6 @@ public class Controller implements IController {
      * @return whether a Command is currently registered for the given <code>notificationName</code>.
      */
     public boolean hasCommand(String notificationName) {
-        return commandMap.get(notificationName) != null;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

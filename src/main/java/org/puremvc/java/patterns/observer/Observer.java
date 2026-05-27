@@ -4,12 +4,10 @@
 //  Copyright(c) 2019 Saad Shams <saad.shams@puremvc.org>
 //  Your reuse is governed by the Creative Commons Attribution 3.0 License
 //
-
 package org.puremvc.java.patterns.observer;
 
 import org.puremvc.java.interfaces.INotification;
 import org.puremvc.java.interfaces.IObserver;
-
 import java.util.function.Consumer;
 
 /**
@@ -59,7 +57,7 @@ public class Observer implements IObserver {
      *         the same
      */
     public boolean compareNotifyContext(Object object) {
-        return object == this.notifyContext;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -69,7 +67,7 @@ public class Observer implements IObserver {
      *                     object's notification method.
      */
     public void notifyObserver(INotification notification) {
-        notifyMethod.accept(notification);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -79,7 +77,7 @@ public class Observer implements IObserver {
      *         interested object.
      */
     protected Object getNotifyContext() {
-        return notifyContext;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -88,7 +86,7 @@ public class Observer implements IObserver {
      * @param notifyContext the notification context (this) of the interested object.
      */
     public void setNotifyContext(Object notifyContext) {
-        this.notifyContext = notifyContext;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -97,7 +95,7 @@ public class Observer implements IObserver {
      * @return the notification (callback) consumer function of the interested object.
      */
     protected Consumer<INotification> getNotifyMethod() {
-        return notifyMethod;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -109,7 +107,6 @@ public class Observer implements IObserver {
      * @param notifyMethod the notification (callback) consumer function of the interested object.
      */
     public void setNotifyMethod(Consumer<INotification> notifyMethod) {
-        this.notifyMethod = notifyMethod;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

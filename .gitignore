@@ -2,3 +2,7 @@
 *.iml
 .DS_Store
 target
+.aider*
+logs/
+.commit0_scripts/
+.github/workflows/

@@ -4,7 +4,6 @@
 //  Copyright(c) 2019 Saad Shams <saad.shams@puremvc.org>
 //  Your reuse is governed by the Creative Commons Attribution 3.0 License
 //
-
 package org.puremvc.java.core;
 
 import org.puremvc.java.interfaces.IMediator;
@@ -12,7 +11,6 @@ import org.puremvc.java.interfaces.INotification;
 import org.puremvc.java.interfaces.IObserver;
 import org.puremvc.java.interfaces.IView;
 import org.puremvc.java.patterns.observer.Observer;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -62,10 +60,10 @@ public class View implements IView {
      * Factory method <code>View.getInstance()</code></P>
      *
      * @throws Error Error if Singleton instance has already been constructed
-     *
      */
     public View() {
-        if(instance != null) new Error(SINGLETON_MSG);
+        if (instance != null)
+            new Error(SINGLETON_MSG);
         instance = this;
         mediatorMap = new ConcurrentHashMap<>();
         observerMap = new ConcurrentHashMap<>();
@@ -79,8 +77,7 @@ public class View implements IView {
      * @return the Singleton instance of <code>View</code>
      */
     public synchronized static IView getInstance(Supplier<IView> factory) {
-        if(instance == null) instance = factory.get();
-        return instance;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -92,6 +89,7 @@ public class View implements IView {
      * constructor.</P>
      */
     protected void initializeView() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -102,11 +100,7 @@ public class View implements IView {
      * @param observer the <code>IObserver</code> to register
      */
     public void registerObserver(String notificationName, IObserver observer) {
-        if(observerMap.get(notificationName) != null) {
-            observerMap.get(notificationName).add(observer);
-        } else {
-            observerMap.put(notificationName, new ArrayList<>(Arrays.asList(observer)));
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -119,17 +113,7 @@ public class View implements IView {
      * @param notification the <code>INotification</code> to notify <code>IObservers</code> of.
      */
     public void notifyObservers(INotification notification) {
-        if(observerMap.get(notification.getName()) != null) {
-            // Get a reference to the observers list for this notification name
-            List<IObserver> observers_ref = observerMap.get(notification.getName());
-
-            // Copy observers from reference array to working array,
-            // since the reference array may change during the notification loop
-            List<IObserver> observers = new ArrayList<>(observers_ref);
-
-            // Notify Observers from the working array
-            observers.forEach(observer -> observer.notifyObserver(notification));
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -139,24 +123,7 @@ public class View implements IView {
      * @param notifyContext remove the observer with this object as its notifyContext
      */
     public void removeObserver(String notificationName, Object notifyContext) {
-        // the observer list for the notification under inspection
-        List<IObserver> observers = observerMap.get(notificationName);
-
-        // find the observer for the notifyContext
-        for(int i=0; i<observers.size(); i++) {
-            if(observers.get(i).compareNotifyContext(notifyContext) == true) {
-                // there can only be one Observer for a given notifyContext
-                // in any given Observer list, so remove it and break
-                observers.remove(i);
-                break;
-            }
-        }
-
-        // Also, when a Notification's Observer list length falls to
-        // zero, delete the notification key from the observer map
-        if(observers.size() == 0) {
-            observerMap.remove(notificationName);
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -175,28 +142,7 @@ public class View implements IView {
      * @param mediator a reference to the <code>IMediator</code> instance
      */
     public void registerMediator(IMediator mediator) {
-        // do not allow re-registration (you must to removeMediator fist)
-        if(mediatorMap.get(mediator.getMediatorName()) != null) return;
-
-        // Register the Mediator for retrieval by name
-        mediatorMap.put(mediator.getMediatorName(), mediator);
-
-        // Get Notification interests, if any.
-        String[] interests = mediator.listNotificationInterests();
-
-        // Register Mediator as an observer for each of its notification interests
-        if(interests.length > 0) {
-            // Create Observer referencing this mediator's handlNotification method
-            IObserver observer = new Observer(mediator::handleNotification, mediator);
-
-            // Register Mediator as Observer for its list of Notification interests
-            for(int i=0; i<interests.length; i++) {
-                registerObserver(interests[i], observer);
-            }
-        }
-
-        // alert the mediator that it has been registered
-        mediator.onRegister();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -206,7 +152,7 @@ public class View implements IView {
      * @return the <code>IMediator</code> instance previously registered with the given <code>mediatorName</code>.
      */
     public IMediator retrieveMediator(String mediatorName) {
-        return mediatorMap.get(mediatorName);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -216,26 +162,7 @@ public class View implements IView {
      * @return the <code>IMediator</code> that was removed from the <code>View</code>
      */
     public IMediator removeMediator(String mediatorName) {
-        // Retrieve the named mediator
-        IMediator mediator = mediatorMap.get(mediatorName);
-
-        if(mediator != null) {
-            // for every notification this mediator is interested in...
-            String[] interests = mediator.listNotificationInterests();
-            for(int i=0; i<interests.length; i++) {
-                // remove the observer linking the mediator
-                // to the notification interest
-                removeObserver(interests[i], mediator);
-            }
-
-            // remove the mediator from the map
-            mediatorMap.remove(mediatorName);
-
-            // alert the mediator that it has been removed
-            mediator.onRemove();
-        }
-
-        return  mediator;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -245,7 +172,6 @@ public class View implements IView {
      * @return whether a Mediator is registered with the given <code>mediatorName</code>.
      */
     public boolean hasMediator(String mediatorName) {
-        return  mediatorMap.containsKey(mediatorName);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

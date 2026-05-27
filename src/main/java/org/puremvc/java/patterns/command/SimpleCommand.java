@@ -4,7 +4,6 @@
 //  Copyright(c) 2019 Saad Shams <saad.shams@puremvc.org>
 //  Your reuse is governed by the Creative Commons Attribution 3.0 License
 //
-
 package org.puremvc.java.patterns.command;
 
 import org.puremvc.java.interfaces.ICommand;
@@ -34,5 +33,6 @@ public class SimpleCommand extends Notifier implements ICommand {
      * @param notification the <code>INotification</code> to handle.
      */
     public void execute(INotification notification) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }
